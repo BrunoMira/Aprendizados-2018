@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Block Formatting Context</title>
+
+    <style>
+        body{
+            padding: 20px;
+        }
+        .outer{
+            border: 5px dotted rgb(214, 129, 137);
+            border-radius: 5px;
+            width: 450px;
+            padding: 10px;
+            margin-bottom: 40px;
+        }
+
+        .float{
+            padding: 10px;
+            border: 5px solid rgba(214,129,137,.4);
+            border-radius: 5px;
+            background-color: rgba(233,78,119,.4);
+            color: #fff;
+            float: left;
+            width: 200px;
+            margin: 0 20px 0 0;
+
+        }
+        .outer-2{
+            background-color: #aaa;
+            margin: 0 0 40px 0;
+        }
+
+        p.margin-collapse{
+            padding: 0px;
+            margin: 20px 0;
+            background-color: rgb(233, 78, 119);
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body>
+
+    <p><strong>Quando um elemento está flutando (float), ele saí do escopo do seu conteiner (outer), se tiver texto suficiente, parecerá que está tudo certo</strong></p>
+
+    <div class="outer">
+        <div class="float"> I am a floated element..</div>
+         I am text inside the outer box.
+         I am text inside the outer box.
+         I am text inside the outer box.
+         I am text inside the outer box.
+         I am text inside the outer box.
+         I am text inside the outer box.
+         I am text inside the outer box.
+    </div>
+
+    <p>
+        <strong>Mas se removermos parte do texto, a div flutuante ultrapassa as bordas do seu container</strong>
+    </p>
+
+    <div class="outer" >
+        <div class="float" > I am a floated element.</div>
+         I am text inside the outer box.
+    </div>
+
+    <p>
+        <strong>Uma das maneiras de evitarmos isso é adicionando o overflow: auto no container, isso força o container a criar um contexto dentro dele, todos os seus filhos passam a ficar dentro desse contexto</strong>
+    </p>
+
+    <div class="outer" style="overflow: auto;">
+        <div class="float"> I am a floated element.</div>
+        I am text inside the outer box.
+    </div>
+
+    <hr>
+
+    <p><strong>A principal função do Block formatting context é criar um contexto para que os elementos não saiam de dentro do seu container, neste caso, o primeiro paragrafo está empurrando o canteiner com a margin-top, em vez de aplica-lá dentro do container</strong></p>
+
+    <div class="outer-2">
+        <p class="margin-collapse">I am paragraph 1 and 1 have a margin top and bottom of 20px;</p>
+
+        <p class="margin-collapse">I am paragraph 1 and 1 have a margin top and bottom of 20px;</p>
+        
+    </div>
+
+    <p>
+        <strong>com o overflow: auto, o contexto é criado e os as regras dos paragrafos só são aplicados dentro do container</strong>
+    </p>
+
+    <div class="outer-2" style="overflow: auto;">
+        <p class="margin-collapse">I am paragraph 1 and 1 have a margin top and bottom of 20px;</p>
+    
+        <p class="margin-collapse">I am paragraph 1 and 1 have a margin top and bottom of 20px;</p>
+    
+    </div>
+
+    <hr>
+
+    <p>
+        <strong>E se você aplicar o contexto no texto, ele para de circundar a div, como se ele tivesse a altura do container</strong>
+    </p>
+    
+    <div class="outer"  >
+        <div class="float" > I am a floated element..</div>
+       <p style="overflow: auto;">
+
+           box. I am text inside the outer box. I am text inside the outer box. I am text inside the outer box.
+           I am text inside the outer box. I am text inside the outer box. I am text inside the outer box. I am text inside the outer
+        </p> 
+    </div>
+
+    <div class="outer">
+        <div class="float"> I am a floated element..</div>
+        I am text inside the outer box. I am text inside the outer box. I am text inside the outer box. I am text inside the outer
+        box. I am text inside the outer box. I am text inside the outer box. I am text inside the outer box.
+    </div>
+
+    <hr>
+
+    <h1>A nova maneira de se fazer isso é usando display: flow-root</h1>
+    <p>Mas ainda não é suportado pelos principais browsers
+    <a href="https://caniuse.com/#feat=flow-root">Flow-root</a></p>
+   
+
+    <div class="outer" style="display: flow-root">
+        <div class="float"> I am a floated element.</div>
+        I am text inside the outer box.
+    </div>
+
+
+    <div class="outer-2" style="display: flow-root">
+        <p class="margin-collapse">I am paragraph 1 and 1 have a margin top and bottom of 20px;</p>
+    
+        <p class="margin-collapse">I am paragraph 1 and 1 have a margin top and bottom of 20px;</p>
+    
+    </div>
+
+    <div class="outer">
+        <div class="float"> I am a floated element..</div>
+        <p style="display: flow-root">
+    
+            box. I am text inside the outer box. I am text inside the outer box. I am text inside the outer box. I am text inside the
+            outer box. I am text inside the outer box. I am text inside the outer box. I am text inside the outer
+        </p>
+    </div>    
+</body>
+</html>
