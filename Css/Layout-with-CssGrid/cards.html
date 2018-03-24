@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>
+
+        body{
+            padding: 0 30px ;
+             background-color: #34495e;
+        }
+
+        h1{
+            display: block;
+            padding: 20px 0;
+            margin: 10px 0;
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            font-size: 45px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .menu ul{
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            
+            border-top: 5px solid #3498db;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .menu ul li{
+            display: inline-block;
+            width: 100%;
+            padding: 10px 0;
+            
+            background-color: #fff;
+        }
+
+        .menu ul li a{
+            display: block;
+            width: 100%;
+            font-size: 20px;
+            text-decoration: none;
+            text-align: center;
+            color: #3498db;
+            
+        }
+
+        .descricao , .main{
+             border-top: 5px solid #3498db;
+             border-radius: 5px;
+             background-color: #fff;
+             padding: 20px;
+            break-inside: avoid;
+            margin-bottom: 20px 
+        }
+
+
+        .descricao img{
+            display: block;
+            margin: 0 auto;
+        }
+
+        .main img{
+            border-radius: 100%;
+            width: 80%;
+            display: block;
+        }
+
+        
+       
+
+        @media(min-width: 700px){
+
+            body{
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .corpo{
+                column-count: 2;
+                column-gap: 20px;
+            }
+
+        }
+
+         
+        @media(min-width: 990px){
+             .corpo{
+                column-count: 3;
+                column-gap: 20px;
+            }
+        }
+
+        @media(max-width: 780px){
+             .menu ul li a{
+                 
+                font-size: 14px;   
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 class="titulo">Card Layout</h1>
+
+    <section class="menu">
+        <ul>
+            <li>
+                <a href="">Home</a>
+            </li>
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                <a href="">Gallery</a>
+            </li>
+            <li>
+                <a href="">Blog</a>
+            </li>
+            <li>
+                <a href="">References</a>
+            </li>
+            <li>
+                <a href="">Contant</a>
+            </li>
+        </ul>
+    </section>
+
+    <div class="corpo">
+
+    
+
+   
+
+    <article class="descricao descricao-1">
+        <h2>The title</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum dolor nostrum magnam, autem perspiciatis dignissimos impedit eligendi, nam dolorum obcaecati magni aliquam quae vel culpa ea in qui voluptas iure?</p>
+
+        <a href="">Learn More...</a>
+    </article>
+
+    <article class="descricao descricao-2">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus quia ex, sequi est doloremque delectus aspernatur, eius reiciendis qui commodi consequatur asperiores aperiam unde ratione earum! Voluptates veniam facere impedit?</p>
+        <img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/emoji-one/104/chart-with-upwards-trend_1f4c8.png" alt="">
+        <a href="">Lear More...</a>
+    </article>
+
+    <section class="main">
+        <h2>The title</h2>
+        <img src="https://lorempizza.com/500/500/" alt="">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum nulla maxime magnam sequi officia saepe aliquid quas magni maiores, corrupti reprehenderit. Nemo magni deleniti ullam dolorum commodi reiciendis eum architecto.</p>
+        <a href=""></a>
+    </section>
+
+    
+    <article class="descricao descricao-3">
+        <h2>The title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore quod eligendi fugiat, sapiente repellat quos cupiditate, similique ea, magnam veritatis laborum laboriosam aperiam dolorem amet deleniti quisquam commodi nemo modi.</p>
+        <div class="bg"><a href=""></a></div>
+    </article>
+
+    <article class="descricao descricao-4">
+        <h2>The title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore quod eligendi fugiat, sapiente repellat quos cupiditate, similique ea, magnam veritatis laborum laboriosam aperiam dolorem amet deleniti quisquam commodi nemo modi.</p>
+        <div class="bg"><a href=""></a></div>
+    </article>
+
+    <article class="descricao descricao-5">
+        <h2 class="bg-blue">The title</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore quod eligendi fugiat, sapiente repellat quos cupiditate, similique ea, magnam veritatis laborum laboriosam aperiam dolorem amet deleniti quisquam commodi nemo modi.</p>
+        <div class="bg"><a href=""></a></div>
+    </article>
+   
+    </div>
+
+    
+    
+</body>
+</html>

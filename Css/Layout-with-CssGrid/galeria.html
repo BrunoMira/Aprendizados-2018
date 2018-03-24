@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Galeria com CSS</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Raleway" rel="stylesheet">
+
+    <style>
+
+        body{
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .topo{
+            padding: 10px 0;
+            margin: 10px 0;
+            display: flex;
+            /* Imagem ocupa o necessário , o texto ocupa o resto */
+            grid-template-columns: auto 1fr;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .topo img{
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .topo h1{
+                font-family: 'Lobster', cursive; 
+                color: #771212;
+                font-size: 60px;
+        }
+
+
+        .info h2{
+            padding: 20px 0;
+            font-size: 25px;
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .info p{
+            color: yellow;
+            font-size: 18px;
+            line-height: 20px;
+             margin: 20px;
+
+        }
+
+        .info a{
+            color: orange;
+            margin: 20px;
+            display: block;
+        }
+
+
+       
+
+        .info{
+            background: rgba(0, 0,0,.8);
+            padding: 20px;
+        }
+
+        figure img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media(min-width: 780px){
+
+             .galeria{
+                display: grid;
+                grid-template-columns: repeat(6 , 1fr);
+            }
+            .info{
+                
+                grid-column: span 2;
+            }
+            
+            .info-1{
+                grid-row: span 2;
+            }
+
+            .figure-1{
+                grid-column: span 3;
+                grid-row: span 2;
+            }
+            .figure-6{
+                grid-column: span 2;
+            }
+            .figure-7, .figure-8{
+                grid-column: span 3;
+            }
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header class="topo">
+        <img src="http://icons.iconarchive.com/icons/sonya/swarm/256/Pizza-icon.png" alt="" srcset="">
+
+        <h1>Our campany</h1>
+    </header>
+
+    <section class="galeria">
+
+        <article class="info info-1">
+            <h2>Pizzas</h2>
+            <p>Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas PizzasPizzas </p>
+            <a href="">See more...</a>
+        </article>
+
+        <figure class="figure figure-1">
+            <img src="https://lorempizza.com/1200/800/" alt="" class="figure-img">
+        </figure>
+
+        <figure class="figure figure-2">
+            <img src="https://lorempizza.com/1200/800/" alt="" class="figure-img">
+        </figure>
+
+        <figure class="figure figure-3">
+            <img src="https://lorempizza.com/1200/800/" alt="" class="figure-img">
+        </figure>
+
+        <figure class=" figure figure-4">
+            <img src="https://lorempizza.com/1200/800/" alt="" class="figure-img">
+        </figure>
+
+        <figure class="figure figure-5">
+            <img src="https://lorempizza.com/1200/800/" alt="" class="figure-img">
+        </figure>
+
+        <figure class="figure figure-6">
+            <img src="https://lorempizza.com/1200/800/" alt="" class="figure-img">
+        </figure>
+
+        <article class="info info-2">
+            <h2>Pizzas</h2>
+            <p>Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas Pizzas PizzasPizzas </p>
+            <a href="">See more...</a>
+        </article>
+
+        <figure class="figure figure-7">
+            <img src="https://lorempizza.com/1200/800/" alt="" class="figure-img">
+        </figure>
+
+        <figure class="figure figure-8">
+            <img src="https://lorempizza.com/1200/800/" alt="" class="figure-img">
+        </figure>
+
+    </section>
+
+</body>
+
+</html>
