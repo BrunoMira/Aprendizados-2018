@@ -8,4 +8,4 @@ Visualmente fica bem legal, mas tem 2 problemas.
 
 2º Mesmo tendo um efeito legal, você acaba fazendo o download de uma imagem a mais (mesmo ela sendo minúscula, é uma requisição a mais)
 
-extra: se por alguma razão o JS não executar, você vai ficar com a imagem borrada pra sempre
+extra: se por alguma razão o JS não executar, você vai ficar com a imagem borrada 
