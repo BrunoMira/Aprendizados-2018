@@ -29,10 +29,11 @@ Node.prototype.visit = function(){
 }
 
 Node.prototype.addNode = function (n, level = 1 , width = 0  , height = 0) {
-   
-    height += 40
+   let ajuste = 80 * level;
+   let largura = 300;
+    height += 80
     if (n.id < this.id) {
-        width -= 100 - (20 * level);
+        width -= largura - ajuste;
         if (this.isNodeLeftNull()){
             this.left = n;
             this.left.level = level;
@@ -46,7 +47,7 @@ Node.prototype.addNode = function (n, level = 1 , width = 0  , height = 0) {
         }
 
     } else if (n.id > this.id) {
-        width += 100 + (20 * level);
+        width += largura - ajuste;
         if (this.isNodeRightNull()){
             this.right = n;
             this.right.level = level;
