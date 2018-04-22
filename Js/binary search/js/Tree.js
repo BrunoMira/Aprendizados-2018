@@ -3,8 +3,10 @@ var errors = {
     emptyRoot : "Não existem um elemento inicial na arvore"
 }
 
-function Tree() {
+function Tree(x,y) {
     this.root = null;
+    this.x = x;
+    this.y = y;
 }
 
 Tree.prototype.addNode = function (val) {
@@ -13,9 +15,12 @@ Tree.prototype.addNode = function (val) {
     if ( this.isRootNull() ) {
 
         this.root = node;
+        this.root.x = this.x
+        this.root.y = this.y
 
     } else {
-        this.root.addNode(node);
+        //node , level , widht , height
+        this.root.addNode(node, 1 , this.x , this.y);
     }
 }
 
