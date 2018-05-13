@@ -1,0 +1,1 @@
+Mini curso de Redux disponível em https://wesbos.com/
