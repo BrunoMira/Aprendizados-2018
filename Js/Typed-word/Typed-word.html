@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+      .body{
+        background: #000;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .type{
+        width: 30%;
+        height: 100px;
+        
+      } .type span{
+        border-right: 4px solid #fff;
+        /* transition: all 1s linear; */
+        animation: cursor 1s infinite;
+        color: #fff;
+        padding: 5px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 20px;
+      }
+
+      @keyframes cursor{
+        0%{
+          border-right-color: #fff;
+        }
+        100%{ border-right-color: transparent}
+      }
+
+
+    </style>
+
+</head>
+<body>
+
+        <div class="body">
+
+            <div class="type">
+              <span id="typedWord"></span>
+            </div>
+
+        </div>
+    
+</body>
+
+<script>
+
+    const words = "Este gerador de palavras aleatórias é utilizado em jogos Type Rústico".split(" ");
+    
+    const span = document.querySelector("#typedWord");
+
+     let letter = 0;
+     let wordLenght = 0;
+     let intervalId;
+      let timeoutNewWord = 1000;
+
+  function typeWord(word){
+
+    wordLenght = word.length;
+    letter = 0;
+
+    intervalId = setInterval( escreveLetra.bind(null, word),200)
+  }
+
+   function escreveLetra(word){
+     
+      span.innerText += word.charAt(letter);
+      letter++;
+
+      if(letter === wordLenght){
+        clearInterval(intervalId);
+        
+        if(timeoutNewWord)
+          delay(timeoutNewWord, apagaLetra);
+        else
+          apagaLetra();
+      } 
+   }
+   
+   function apagaLetra(){
+     count = wordLenght;
+      intervalId = setInterval( () => {
+        span.innerHTML = span.innerHTML.slice(0 , count--);
+        
+        if(count === -1){
+          clearInterval(intervalId);
+            dispararEvento();
+        } 
+
+      }, 100)
+   }
+
+  function dispararEvento(){
+    if (document.createEvent) {
+      event = document.createEvent("HTMLEvents");
+      event.initEvent("clearword", true, true);
+    } else {
+      event = document.createEventObject();
+      event.eventType = "clearword";
+    }
+
+   event.eventName = "clearword";
+
+    if (document.createEvent) {
+      span.dispatchEvent(event);
+    } else {
+      span.fireEvent("on" + event.eventType, event);
+    }
+  }
+
+    span.addEventListener("clearword", () => typeWord( words[ randowNumber() ] ));
+
+    typeWord( words[ randowNumber() ] );
+
+  function randowNumber(){
+    return Math.round(Math.random() * 10);
+  }
+
+  function delay(time,callback){
+    
+    setTimeout(callback, time);
+    
+  }
+
+</script>
+</html>
